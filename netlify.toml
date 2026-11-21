@@ -1,0 +1,173 @@
+# Static site. Deploys happen only when main is pushed.
+# Do not add a redirect from / that keys off a query string.
+# Query strings are forwarded on 301s, so /?p= or /?page_id= or /?s=
+# back to / would loop the homepage.
+
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/sample-home-page"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/sample-home-page/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/index.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-signup.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-cron.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-trackback.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-admin"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-json"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-json/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-includes/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-content/plugins/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-content/themes/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/feed"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/feed/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/feed/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/comments/feed"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/comments/feed/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/comments/feed/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-sitemap.xml"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-sitemap.xsl"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-sitemap-index.xsl"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-sitemap-posts-page-1.xml"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/hello-world"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/hello-world/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/category/uncategorized"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/category/uncategorized/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-content/uploads/2024/01/:file"
+  to = "/images/:file"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000"
+    Content-Security-Policy-Report-Only = """default-src 'self'; script-src 'self' https://form.jotform.com https://cdn.jotfor.ms https://www.jotform.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://form.jotform.com https://www.jotform.com https://cdn.jotfor.ms https://files.jotform.com; font-src 'self'; frame-src https://form.jotform.com https://www.jotform.com; connect-src 'self' https://form.jotform.com https://submit.jotform.com https://api.jotform.com https://www.jotform.com https://cdn.jotfor.ms; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://submit.jotform.com; frame-ancestors 'none'"""
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
