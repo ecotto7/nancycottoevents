@@ -1059,14 +1059,19 @@ textarea {
 .pkg-title h2 { font-size: 45px; }
 
 .pkg-intro {
-  max-width: 460px;
-  margin: 8px 0 0;
+  width: calc(100% - 104px);
+  margin: 8px auto 0;
   color: var(--slate);
   font-family: var(--display);
   font-size: 20px;
   font-weight: 600;
   line-height: 1.35;
   text-align: justify;
+}
+
+.pkg-partial .pkg-intro {
+  color: #221218;
+  text-align: center;
 }
 
 .pkg-rings {
@@ -1549,7 +1554,9 @@ textarea {
   .pkg-partial .pkg-hero { background-position: -450px 0; }
   .pkg-partial .pkg-photo { background-position: -348px 0; }
   .pkg-full .pkg-photo { background-position: -364px 0; }
-  .pkg-full .pkg-intro { text-align: center; }
+  .pkg-full .pkg-intro { width: 100%; text-align: center; }
+  .pkg-partial .pkg-intro,
+  .pkg-virtual .pkg-intro { width: 100%; }
   .pkg-virtual .pkg-hero { background-position: -530px 0; }
   .pkg-virtual .pkg-photo-a { background-position: -538px 0; }
   .pkg-virtual .pkg-photo-b { background-position: -414px 0; }
